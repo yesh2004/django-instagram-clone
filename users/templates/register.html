@@ -1,0 +1,25 @@
+{%extends 'base_users.html'%}
+{%load static%}
+{%block content%}
+<div class="container">
+	<h1 class="text-center style-font">Register</h1>
+	<div class="row">
+		<div class="col-lg-7 m-auto">
+			<form action="" method="POST">
+	{%csrf_token%}
+	{{form.username.label}}
+	{{form.username}}
+	{{form.email.label}}
+	{{form.email}}
+	{{form.password1.label}}
+	{{form.password1}}
+	{{form.password2.label}}
+	{{form.password2}}
+	<button class="btn btn-success mt-3" type='submit'>Register</button>
+</form>
+		</div>
+	</div>
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<main class="container h-100 w-50">
+		<div class="row h-100">
+			<div class="col-12 col-md-8 col-center w-100">
+				<div class="post-container py-5">
+					{%for img in posts%}
+					<div class="post-item">
+						<h2>{{img.post.caption}}</h2><span>by {{img.post.author}}</span>
+
+						<img class="d-block w-100" src="{{img.post_image.url}}" alt="Post">
+						<div class="post-btns">
+							<form action="{% url 'post_like' img.post.id %}" method="POST" id='likeForm' onsubmit='e.preventDefault()'>
+								{%csrf_token%}
+								
+							<button type='submit' class="btn" name="post_id" value="{{img.post.id}}"><i class="far fa-heart fa-lg"></i></a> {{img.post.likes.count}}</button>
+							</form>
+							
+						</div>
+						<div class="comments-form">
+							<form id='comment-form' method="POST" action="{%url 'comment_post' img.post.id%}">
+								{%csrf_token%}
+								
+								Comment: {{form.content}}
+								<button type="submit" class="btn btn-info text-white">Comment</button>
+							</form>
+						</div>
+						<div class="comments">
+							{%for comment in comments%}
+								{%if comment.post.id == img.post.id%}
+								<div class="comment">
+									{{comment.author}}: {{comment.content}}
+								</div>
+								
+								{%endif%}
+							
+							{%endfor%}
+						</div>
+					</div>
+					{%endfor%}
+				</div>
+			</div>
+		</div>
+	</main>
+	<script type="text/javascript">
+	
+	</script>
+{%endblock%}

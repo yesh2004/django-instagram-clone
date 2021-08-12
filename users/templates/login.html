@@ -1,0 +1,29 @@
+{%extends 'base_users.html'%}
+{%load static%}
+{%block content%}
+
+<div class="contianer">
+	<h1 class="text-center style-font">Login</h1>
+	<div class="row">
+		<div class="col-lg-7 m-auto">
+			<form action="" method="POST">
+				{%csrf_token%}
+					<label for="username">Username</label>
+					<input type="text" name='username' class="form-control"/>
+					<label for="Password">Password</label>
+					<input type="password" name='password' class="form-control"/>
+					<button type='submit' class='btn btn-primary mt-3'>Login</button>
+			</form>
+			<a href="{%url 'register_page'%}" class="text-primary">Dont Have a account Register</a>
+		{%for message in messages%}
+		<div class="alert alert-danger" role="alert">
+		  {{message}}
+		</div>
+		{%endfor%}
+		</div>
+		
+	</div>
+	
+</div>
+
+{%endblock%}

@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<div class="contianer">
+	<div class="row">
+		<div class="col-lg-7 m-auto">
+			<div class="row">
+				<div class="col-5">
+					<img src="{{profile.image.url}}" alt="" style="border-radius: 50%;"class="img-fluid ">
+				</div>
+				<div class="col-7">
+					<h2>{{profile.user}}</h2>
+					<h5>{{profile.bio}}</h5>
+				</div>
+
+			</div>
+			<div class="row">
+				{%if posts%}
+				{%for post in posts%}
+				<div class="col-4">
+					<h2>{{post.caption}}</h2>
+					
+					{%for post_img in post_images%}
+					<img src="{{post_img.post_image.url}}" class='img-fluid'alt="">
+					{%endfor%}
+					
+					
+				</div>
+				{%endfor%}
+				{%else%}
+				<h2>No posts</h2>
+				{%endif%}
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

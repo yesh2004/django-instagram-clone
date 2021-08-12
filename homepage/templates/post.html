@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-7 m-auto">
+			<form action="" method="POST" enctype="multipart/form-data">
+				{%csrf_token%}
+				{{post_form.as_p}}
+				{{image_form}}
+				<button type="submit" class="btn btn-primary btn-lg">Post</button>
+			</form>
+			{%for message in messages%}
+		<div class="alert alert-warning" role="alert">
+		  {{message}}
+		</div>
+		{%endfor%}
+		</div>
+	</div>
+</div>
+{%endblock%}

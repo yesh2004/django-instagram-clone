@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+}
+.nav-link span,i{
+	color: #ed514e;
+}
+.nav-item{
+	padding: 0 1em;
+}
+.navbar-brand{
+	font-family:'Kaushan Script' ,sans-serif;
+	font-size: 1.5em;
+}
+.navbar{
+	padding-right: 5%;
+}
+.navbar-nav{
+	flex-direction: row;
+
+}
+main{
+	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.col-center{
+	margin: 0 auto;
+}
+.style-font{
+	font-family:'Kaushan Script' ,sans-serif;
+}
